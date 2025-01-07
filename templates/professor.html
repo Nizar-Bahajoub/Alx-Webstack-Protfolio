@@ -1,0 +1,102 @@
+{% extends "index.html"%}
+{% block content %}
+    <main class="content px-3 py-2">
+        <div class="container-fluid">
+            <div class="mb-3">
+                <h4>Teacher Dashboard</h4>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="card flex-fill border-0 illustration">
+                        <div class="card-body p-0 d-flex flex-fill">
+                            <div class="row g-0 w-100">
+                                <div class="col-6">
+                                    <div class="p-3 m-1">
+                                        <h4>Welcome Back, TeacherName</h4>
+                                        <p class="mb-0">Here is your Dashboard</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 align-self-end text-end">
+                                    <!--<img src="images/dashboard.jpg" class="img-fluid illustration-img" alt="">-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 d-flex">
+                    <div class="card flex-fill border-0">
+                        <div class="card-body py-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-grow-1">
+                                    <h4 class="mb-2">
+                                        DepartmentName
+                                    </h4>
+                                    <p class="mb-2">
+                                        Department
+                                    </p>
+                                    <div class="mb-0 navbar-collapse navbar">
+                                        <div class="dropdown">
+                                            <a href="#" data-bs-toggle="dropdown" class="pe-md-0">                                                            
+                                                Select Department
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#" class="dropdown-item">TRI</a>
+                                                <a href="#" class="dropdown-item">STIN</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 align-self-end text-end">
+                                    <!--<img src="images/building1.jpg" class="img-fluid illustration-img1" alt="">-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-0">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Upcoming Events
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID Session</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Begining</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td><a href="#">20-10-2025</a></td>
+                            <td><a href="#">8:30</a></td>
+                            <td><a href="#">1h30min</a></td>
+                            <td><a href="#">Non Attended</a></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td><a href="#">20-10-2025</a></td>
+                            <td><a href="#">8:30</a></td>
+                            <td><a href="#">1h30min</a></td>
+                            <td><a href="#">Non Attended</a></td>
+                            </tr>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td><a href="#">20-10-2025</a></td>
+                            <td><a href="#">8:30</a></td>
+                            <td><a href="#">1h30min</a></td>
+                            <td><a href="#">Non Attended</a></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}

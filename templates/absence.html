@@ -1,0 +1,146 @@
+{% extends "index.html" %}
+{% block content %}
+
+{% if mess%}
+<p class="text-center">{{ mess }}</p>
+{% endif %}
+
+<div class="containe">
+    <div class="topbar">
+        <div class="logo">
+            <img src="img/ensa el jadida.png" alt="">
+        </div>
+        <div class="nav-title">
+            <div class="absences-space">HISTORIQUE DE MES ABSENCES</div>
+        </div>
+        <div class="user dropdown">
+            <img src="img/user.png" alt="">
+            <div class="dropdown-content">
+                <a href="settings.html">Settings</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="dash-content">
+        <div class="boxes">
+            <div class="box box1">
+                <i class="uil uil-user"></i>
+                <span class="text">Nom de l'étudiant</span>
+                <span class="number">Walid Anejjar</span>
+            </div>
+            <div class="box box2">
+                <i class="uil uil-subject"></i> 
+                <span class="text">Filière</span>
+                <span class="number">CCN</span>
+            </div>
+            <div class="box box3">
+                <i class="uil uil-building"></i>
+                <span class="text">Département</span>
+                <span class="number">TRI</span>
+            </div>
+        </div>
+    </div>
+    <table>
+            <tbody>
+                <tr>
+                    <td colspan="6" style="height: 60px; font-size: 30px; font-family: 'Poppins', sans-serif; color: #ffffff; background-color: #2e588f;"><center><b>Vos absences</b></center></td>
+                </tr>                    
+                <tr>
+                    <td>Date</td>
+                    <td>Matière</td>
+                    <td>Heure de début</td>
+                    <td>Heure de fin</td>
+                    <td>Statut</td>
+                    <td>Justification</td> <!-- Nouvelle colonne -->
+                </tr>
+                <tr>
+                    <td>01/04/2024</td>
+                    <td>Sécurité et fondements</td>
+                    <td>08:00</td>
+                    <td>10:00</td>
+                    <td>Justifiée</td>
+                    <td><button id="openModalBtn1" data-action="justifier">Justifier</button></td> <!-- Bouton de justification -->
+                </tr>
+                <tr>
+                    <td>05/04/2024</td>
+                    <td>Systèmes et réseaux I</td>
+                    <td>09:30</td>
+                    <td>11:30</td>
+                    <td>Non justifiée</td>
+                    <td><button id="openModalBtn2" data-action="justifier">Justifier</button></td> 
+                </tr>
+                <!-- Ajoutez d'autres lignes pour plus d'absences -->
+            </tbody>
+    </table>
+</div>
+
+<main class="content px-3 py-2">
+    <h2 class="text-center py-2">Session's Attendance</h2>
+    <div class="container-fluid py-3">
+        <div class="row g-8">
+            <div class="col-12 col-md-6 d-flex">
+                <div class="card flex-fill border-0 illustration">
+                    <div class="card-body p-0 d-flex flex-fill">
+                        <div class="row g-0 w-100">
+                            <div class="col-6">
+                                <div class="p-3 m-1">
+                                        <h4>Session Information</h4>
+                                    <div class="ml-5">
+                                        <h6 class="mb-0">Professor   : </h6>
+                                        <h6 class="mb-0">Session Id  : </h6>
+                                        <h6 class="mb-0">Group Id    : </h6>
+                                        <h6 class="mb-0">Start times : </h6>
+                                        <h6 class="mb-0">Student's number   : {{ totalreg }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6  p-0 d-flex flex-row justify-content-lg justify-content-around align-items-center"">
+                <a href="/start" class="btn btn-success color p-4">
+                    <span>Lunch Presence</span>
+                </a>
+                <a href="#" class="btn btn-success color p-4">
+                    <span>Change Timing</span>
+                </a>
+            </div>
+        </div>
+        <div class="card border-0 mt-4">
+            <div class="card-header">
+                <h5 class="card-title">
+                    Presence Table
+                </h5>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID Session</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if l %}
+                        {% for i in range(l) %}
+                        <tr>
+                            <td>{{ 1 }}</td>
+                            <td>{{ names[i] }}</td>
+                            <td>{{ rolls[i] }}</td>
+                            <td>{{ times[i] }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
