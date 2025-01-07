@@ -1,0 +1,82 @@
+{% extends "index.html" %}
+{% block content %}
+
+{% if mess%}
+<p class="text-center">{{ mess }}</p>
+{% endif %}
+<div class="boxes">
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Nom du Module</span>
+            <span class="number">OOP</span>
+        </div>
+        <img src="{{ url_for('static', filename='images/icons/cours.png') }}">
+    </div>
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Totale des Etudiants</span>
+            <span class="number">25/25</span>
+        </div>
+        <img src="{{ url_for('static', filename='images/icons/etudiant.png') }}">
+    </div>
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Nom de l'element</span>
+            <span class="number">Java</span>
+        </div>
+        <img src="{{ url_for('static', filename='images/icons/livre.png') }}">
+    </div>
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Groupe</span>
+            <span class="number">CCN</span>
+        </div>
+        <img src="{{ url_for('static', filename='images/icons/programme.png') }}">
+    </div>
+</div>
+<div class="presence-content">
+    <div class="presence-head">
+        <h5 class="card-title">
+            Table de Presence
+        </h5>
+        <div class="presence-butts">
+            <a href="#" class="butt butt-alert"><span>Ratrapper Seance</span></a>
+            <a href="{{url_for('start', id_session=id_session)}}" class="butt butt-success"> <span>Lancer Presence</span></a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID Etudiant</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Temps de presence</th>
+                <th scope="col">Presence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.id_etu }}</td>
+                <td>{{ student.nom_etu }}</td>
+                <td>{{ student.prenom_etu }}</td>
+                {% if students_present is not none and student.id_etu in students_present %}
+                    <td>{{ students_present[student.id_etu].temps }}</td>
+                    <td><input type="checkbox" name="present[]"  checked></td>
+                {% else %}
+                    <td>--:--:--</td>
+                    <td><input type="checkbox" name="present[]"></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="presence-foot">
+        <div class="presence-butts">
+            <a href="{{url_for('valider', id_session=id_session)}}" class="butt butt-success"><span>Valider Presence</span></a>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock content %}

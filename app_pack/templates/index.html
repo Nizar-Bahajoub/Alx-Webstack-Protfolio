@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensaj Paltforme</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/ensa el jadida.png') }}" alt="">
+            </div>
+
+            <div class="menu-items">
+                <ul class="nav-links">
+                    <li><a href="#" title="Acceuil">
+                            <i class="uil uil-estate"></i>
+                        </a></li>
+                    <li><a href="#" title="Utilisateurs">
+                            <i class="uil uil-user"></i>
+                        </a></li>
+                    <li><a href="#" title="Filières">
+                            <i class="uil uil-suitcase"></i>
+                        </a></li>
+                    <li><a href="#" title="Departements">
+                            <i class="uil uil-university"></i>
+                        </a></li>
+                    <li><a href="#" title="Semestres">
+                            <i class="uil uil-calender"></i>
+                        </a></li>
+                    <li><a href="#" title="Modules">
+                            <i class="uil uil-book-open"></i>
+                        </a></li>
+                    <li><a href="#" title="Séances">
+                            <i class="uil uil-clock"></i>
+                        </a></li>
+                    <li><a href="#" title="Listes de présence">
+                            <i class="uil uil-file"></i>
+                        </a></li>
+                    <li><a href="#" title="Justifiations">
+                            <i class="uil uil-award"></i>
+                        </a></li>
+                </ul>
+
+                <ul class="logout-mode">
+                    <li><a href="#" title="Se déconnecter">
+                            <i class="uil uil-signout"></i>
+                        </a></li>
+                    <li><a href="#" title="Paramètres">
+                            <i class="uil uil-setting"></i>
+                        </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="topbar">
+                <div class="search-box">
+                    <input type="text" placeholder="Rechercher...">
+                    <button><i class="uil uil-search"></i></button>
+                </div>
+                <div class="user" onclick="toggleDropdown()">
+                    <img src="{{ url_for('static', filename='images/user.png') }}" alt="">
+                    <div class="dropdown-content" id="dropdownContent">
+                        <a href="settings.html">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+
+</body>
+
+</html>

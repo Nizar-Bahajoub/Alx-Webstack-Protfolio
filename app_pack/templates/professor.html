@@ -1,0 +1,149 @@
+{% extends "index.html"%}
+{% block content %}
+<div class="boxes">
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Totale des Classes</span>
+            <span class="number">04/06</span>
+        </div>
+        <img src="static/images/icons/cours.png">
+    </div>
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Totale des Etudiants</span>
+            <span class="number">40/60</span>
+        </div>
+        <img src="static/images/icons/etudiant.png">
+    </div>
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Totale des Cours</span>
+            <span class="number">30/35</span>
+        </div>
+        <img src="static/images/icons/livre.png">
+    </div>
+    <div class="box box1">
+        <div class="box-infos">
+            <span class="text">Totale des Heures</span>
+            <span class="number">15/20</span>
+        </div>
+        <img src="static/images/icons/programme.png">
+    </div>
+</div>
+<div class="dash-content">
+    <div class="left">
+
+        <div class="upcoming-sessions">
+            <div class="shadow session">
+                <div class="text">
+                    <h3>Seance d'Aujourd'hui</h3>
+                    <a href="#">Afficher Plus</a>
+                </div>
+                {% for session, session_data in today_sessions.items() %}
+                    <div class="sess-info">
+                        <div class="sess">
+                            <h4>{{ session_data.element }}</h4>
+                            <span>Amphi 1, Bloc C</span>
+                            <span><img src="static/images/icons/calendrier.png"> {{ session_data.date }} | <img
+                                    src="static/images/icons/horloge.png" alt="">{{ session_data.start }} - {{ session_data.end }}</span>
+                        </div>
+                        <div class="butts">
+                            <a href="{{ url_for('absence', id_session=session_data.id) }}" class="butt butt1">Afficher</a>
+                            <a href="#" class="butt butt2">Changer</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="shadow progress">
+                <div class="text">
+                    <h3>Progression semestre</h3>
+                </div>
+                <div class="progress-circle less50" style="--i:60;">
+                    <h3>60<span>%</span></h3>
+                    <h4>Temps Total</h4>
+                </div>
+            </div>
+        </div>
+        <div class="activity">
+            <div class="chart" id="chart">
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="claneder">
+            <div class="header">
+                <button id="prevBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="monthYear" id="monthYear"></div>
+                <button id="nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="days">
+                <div class="day">Mon</div>
+                <div class="day">Tue</div>
+                <div class="day">Wed</div>
+                <div class="day">Thu</div>
+                <div class="day">Fri</div>
+                <div class="day">Sat</div>
+                <div class="day">Sun</div>
+            </div>
+            <div class="dates" id="dates"></div>
+        </div>
+        <div class="upcoming-events">
+            <div class="text">
+                <h3>Evenements Prochain</h3>
+            </div>
+            <h5>10 May</h5>
+            <div class="events">
+                <div class="event">
+                    <span>04:00 PM</span>
+                    <div class="event-info">
+                        <h5>Forum ENSAJ</h5>
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <span>04:00 PM</span>
+                    <div class="event-info">
+                        <h5>Forum ENSAJ</h5>
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <span>04:00 PM</span>
+                    <div class="event-info">
+                        <h5>Forum ENSAJ</h5>
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div>
+            </div>
+            <h5>25 Juin</h5>
+            <div class="events">
+                <div class="event">
+                    <span>04:00 PM</span>
+                    <div class="event-info">
+                        <h5>Forum AIS</h5>
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <span>06:00 PM</span>
+                    <div class="event-info">
+                        <h5>Forum ENSAJ</h5>
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <span>14:00 PM</span>
+                    <div class="event-info">
+                        <h5>Forum ENSAJ</h5>
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

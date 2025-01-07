@@ -1,0 +1,675 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --primary-color: #0E4BF1;
+    --panel-color: #FFF;
+    --text-color: #000;
+    --black-light-color: #707070;
+    --border-color: #e6e5e5;
+    --toggle-color: #DDD;
+    --box1-color: #CE5B78;
+    --box2-color: #658cc8;
+    --box3-color: #98DDDE;
+    --title-icon-color: #fff;
+
+    /* =====Transition===== */
+    --tran-05: all 0.5s ease;
+    --tran-03: all 0.3s ease;
+    --tran-03: all 0.2s ease;
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.container .sidebar {
+    background: #fff;
+    width: 5%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .sidebar .logo {
+    width: 100%;
+    height: 10%;
+    position: relative;
+}
+
+.container .sidebar .logo img {
+    width: 100%;
+}
+
+.container .sidebar .menu-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90%;
+}
+
+.container .sidebar .menu-items li {
+    list-style: none;
+}
+
+.container .sidebar .menu-items li a {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-links li a:hover:before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.menu-items li a i {
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black-light-color);
+}
+
+.nav-links li a:hover i,
+.nav-links li a:hover .link-name,
+.nav-links li a:focus i,
+.nav-links li a:focus .link-name {
+    color: var(--primary-color);
+}
+
+.menu-items .logout-mode {
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    background: #a9b1cc23;
+}
+
+.content .topbar {
+    position: sticky;
+    background-color: #fff;
+    width: 100%;
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1;
+}
+
+.content .topbar .user {
+    position: absolute;
+    right: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.content .topbar .user img {
+    width: 100%;
+    padding: 6px;
+}
+
+.content .topbar .user {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.content .topbar .user .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 60px;
+    right: 0;
+}
+
+.content .topbar .user .dropdown-content a {
+    color: black;
+    padding: 15px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.content .topbar .user .dropdown-content a:hover {
+    background-color: var(--box3-color);
+}
+
+.content .topbar .user .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.content .topbar .search-box {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    width: 40%;
+}
+
+.content .topbar .search-box input {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 20px;
+    outline: none;
+    min-width: 100%;
+    margin-right: 5px;
+}
+
+.content .topbar .search-box button {
+    background-color: transparent;
+    position: absolute;
+    right: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.content .topbar .search-box button i {
+    color: var(--black-light-color);
+    font-size: 25px;
+}
+
+
+.content .dash-content {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    position: relative;
+}
+
+.content  .boxes {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    padding: .5em;
+}
+
+
+.content .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 23%;
+    min-height: 6em;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 1em 2em;
+}
+
+.content .box .box-infos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content .box .box-infos .text {
+    align-self: flex-start;
+    font-weight: 500;
+    font-size: .8em;
+}
+
+.content .box .box-infos .number {
+    align-self: flex-start;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.content .box img {
+    width: 3.5em;
+    height: 3.5em;
+}
+
+
+.content .dash-content .left {
+    position: relative;
+    flex: 3;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content .dash-content .left .upcoming-sessions {
+    display: flex;
+    flex-direction: row;
+}
+
+.content .dash-content .left .upcoming-sessions .shadow{
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 1em 2em;
+}
+
+.content .dash-content .left .upcoming-sessions .session{
+    flex: 4;
+    margin-right: 10px;
+}
+
+.content .dash-content .left .upcoming-sessions .progress{
+    flex: 2;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.upcoming-sessions .session .text,
+.upcoming-events .text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.upcoming-sessions .session .sess-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: #000 1px dashed;
+    margin-top: 1em;
+    padding: .3em 0 0 1em;
+}
+
+.upcoming-sessions .session .sess{
+    display: flex;
+    flex-direction: column;
+}
+
+.upcoming-sessions .session .butts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.upcoming-sessions .session .butt {
+    padding: .3em 1em;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.upcoming-sessions .session .butt1 {
+    background: var(--primary-color);
+}
+
+.upcoming-sessions .session .butt2 {
+    background: #ff5869;
+}
+
+.upcoming-sessions .progress .progress-circle {
+    margin: 0 auto;
+    position: relative;
+    width: 17em;
+    height: 17em;
+    border-radius: 50%;
+    color: var(--primary-color);
+    background: #444 linear-gradient(to right, transparent 50%, var(--primary-color) 0);
+}
+
+.upcoming-sessions .progress .progress-circle h3 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.upcoming-sessions .progress .progress-circle h3 span {
+    font-size: 0.8em;
+    font-weight: 400;
+}
+
+.upcoming-sessions .progress .progress-circle h4 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    font-weight: 500;
+    color: var(--box2-color);
+    text-transform: uppercase;
+}
+
+.upcoming-sessions .progress .progress-circle::before {
+    content: '';
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    transform-origin: left;
+    border-radius: 0 100% 100% 0/50%;
+}
+
+.upcoming-sessions .progress .progress-circle::after {
+    content: '';
+    position: absolute;
+    inset: 25px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.upcoming-sessions .progress .progress-circle::before {
+    background: var(--primary-color);
+    transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+}
+/* if value is less then 50%*/
+.upcoming-sessions .progress .progress-circle.less50::before{
+    background: #444;
+    transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+}
+
+.content .dash-content .left .activity {
+    background: #fff;
+    padding: 30px;
+    margin-top: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+.content .dash-content .right {
+    margin-left: 10px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    padding: 0 1em;
+}
+
+.right .upcoming-events{
+    margin-top: 3em;
+}
+
+.right .upcoming-events .events { 
+    padding-left: 2em;
+    border-top: #000 1px dotted;
+}
+
+.right .upcoming-events .event {
+    display: flex;
+    flex-direction: row;
+}
+
+.right .upcoming-events .event span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.right .upcoming-events .event-info::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    height: 3em;
+    width: 5px;
+    background-color: var(--primary-color);
+}
+
+.right .upcoming-events .event-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: .5em 1em;
+    padding: 0 2em;
+}
+
+
+
+
+/* -------- Calender Style ----------- */
+.claneder {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.monthYear {
+    text-align: center;
+    font-weight: 600;
+    width: 150px;
+}
+
+.header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+    text-align: center;
+    padding: 5px;
+    color: #999EA6;
+    font-weight: 100;
+}
+
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: 0.2s;
+}
+
+.date:hover,
+.date.active {
+    background: #ff5869;
+    color: #fff;
+}
+
+.date.inactive {
+    color: #d2d2d2;
+}
+
+.date.inactive:hover {
+    color: #fff;
+}
+
+
+
+/* -------- Shcedule Style ---------- */
+.left .timetable {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.timetable h1 {
+    color: #ff5869;
+    padding: 1em 0;
+}
+.timetable table {
+    width: 100%;
+    padding: .5em 3em;
+    position: relative;
+}
+
+.timetable table tr {
+    width: 100%;
+}
+
+.timetable table tr td ,
+.timetable table tr th {
+    padding: 1em;
+    border: #000 1px dotted;
+}
+
+
+/* ---------  Absence style ---------- */
+
+.presence-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+}
+
+.presence-content .presence-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.presence-content .presence-head h5 {
+    font-size: 2em;
+    font-weight: medium;
+    padding-left: 2em;
+    color: #CE5B78;
+}
+
+.presence-content .presence-butts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.presence-content .presence-butts .butt {
+    min-width: 15%;
+    min-height: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    margin-left: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.presence-content .presence-butts .butt-success {
+    background: rgb(43, 179, 43);
+}
+
+.presence-content .presence-butts .butt-alert {
+    background: rgb(179, 43, 43);
+}
+
+.presence-content .table {
+    position: relative;
+    margin-top: 2em;
+}
+
+.presence-content .table tr{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.presence-content .table thead tr{
+    background: #3661d8;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.presence-content .table tbody tr{
+    border-left: #3661d8 .2em dashed;
+    border-right: #3661d8 .2em dashed;
+}
+.presence-content .table tbody tr:last-child{
+    border-bottom: #3661d8 .2em dashed;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.presence-content .table th,
+.presence-content .table td {
+    min-width: 20%;
+    padding: 1em;
+}
+
+.presence-content .presence-foot {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1em;
+}
