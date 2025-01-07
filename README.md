@@ -54,8 +54,7 @@ This application leverages YOLOv8 for face detection and an SVM model for face r
 Follow these steps to set up and run the project locally:
 
 1. **Clone the repository**:
-    git clone https://github.com/your-repo/FacePresence.git
-
+    git clone https://github.com/Nizar-Bahajoub/Alx-Webstack-Protfolio.git
 2. **Navigate to the project directory**:
         cd FacePresence
 
